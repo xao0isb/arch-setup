@@ -12,6 +12,8 @@ echo "exec i3" >> ~/.xinitrc
 cp .bash_profile ~/.bash_profile
 cp .bashrc ~/.bashrc
 
+mkdir ~/.config
+
 mkdir ~/.config/i3
 cp config ~/.config/i3/config
 
@@ -29,9 +31,9 @@ chmod +x ~/bin/update-brightness.sh
 cp update-volume.sh ~/bin/update-volume.sh
 chmod +x ~/bin/update-volume.sh
 
-sudo localectl set-x11-keymap us,ru pc105+inet grp:win_space_toggle
+sudo localectl set-x11-keymap us,ru pc105+inet "" grp:win_space_toggle
 
-udo systemctl enable NetworkManager
+sudo systemctl enable NetworkManager
 sudo cp 09-timezone /etc/NetworkManager/dispatcher.d/09-timezone
 sudo chmod +x /etc/NetworkManager/dispatcher.d/09-timezone
 
