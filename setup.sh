@@ -1,12 +1,12 @@
 #!/bin/bash
 
 sudo sed -i "s/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/" /etc/sudoers
-sudo sed -i "s/^a ALL=(ALL:ALL) ALL/# a ALL=(ALL:ALL) ALL/" /etc/sudoers.d/00_a
+sudo sed -i "s/^a ALL=(ALL) ALL/# a ALL=(ALL) ALL/" /etc/sudoers.d/00_a
 
 sudo pacman -S --noconfirm i3-wm xterm
 
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
-sed -i '/exec "$xterm" -geometry 80x66+0+0 -name login/s/^/#/' ~/.xinitrc
+sed -i '/exec "$xterm" -geometry 80x66+0+0 -name login/s/^/# /' ~/.xinitrc
 echo "exec i3" >> ~/.xinitrc
 
 cp .bash_profile ~/.bash_profile
@@ -18,9 +18,8 @@ mkdir ~/.config/i3
 cp config ~/.config/i3/config
 
 cp .Xresources ~/.Xresources
-xrdb -merge ~/.Xresources
 
-sudo pacman -S --noconfirm dunst libnotify pipewire pipewire-pulse networkmanager nano less bc chromium libreoffice-still obs-studio
+sudo pacman -S --noconfirm dunst libnotify pipewire pipewire-pulse networkmanager nano less bc unzip openssh chromium libreoffice-still obs-studio
 
 mkdir ~/.config/dunst
 cp dunstrc ~/.config/dunst/dunstrc
