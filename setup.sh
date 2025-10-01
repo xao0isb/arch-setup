@@ -1,5 +1,9 @@
 #!/bin/bash
 
+mkdir ~/.config
+mkdir ~/Downloads
+mkdir ~/Screenshots
+
 sudo sed -i "s/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/%wheel ALL=(ALL:ALL) NOPASSWD: ALL/" /etc/sudoers
 sudo sed -i "s/^a ALL=(ALL) ALL/# a ALL=(ALL) ALL/" /etc/sudoers.d/00_a
 
@@ -11,8 +15,6 @@ echo "exec i3" >> ~/.xinitrc
 
 cp .bash_profile ~/
 cp .bashrc ~/
-
-mkdir ~/.config
 
 mkdir ~/.config/i3
 cp config ~/.config/i3/
@@ -37,5 +39,10 @@ sudo cp 09-timezone /etc/NetworkManager/dispatcher.d/
 sudo chmod +x /etc/NetworkManager/dispatcher.d/09-timezone
 
 sudo cp 30-touchpad.conf /usr/share/X11/xorg.conf.d/
+
+git clone https://aur.archlinux.org/escrotum-git.git ~/Downloads/escrotum-git
+cd ~/Downloads/escrotum-git
+makepkg -si --noconfirm
+cd ~
 
 sudo reboot
