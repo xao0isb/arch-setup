@@ -9,31 +9,33 @@ cp /etc/X11/xinit/xinitrc ~/.xinitrc
 sed -i '/exec "$xterm" -geometry 80x66+0+0 -name login/s/^/# /' ~/.xinitrc
 echo "exec i3" >> ~/.xinitrc
 
-cp .bash_profile ~/.bash_profile
-cp .bashrc ~/.bashrc
+cp .bash_profile ~/
+cp .bashrc ~/
 
 mkdir ~/.config
 
 mkdir ~/.config/i3
-cp config ~/.config/i3/config
+cp config ~/.config/i3/
 
-cp .Xresources ~/.Xresources
+cp .Xresources ~/
 
 sudo pacman -S --noconfirm dunst libnotify pipewire pipewire-pulse networkmanager nano less bc unzip openssh chromium libreoffice-still obs-studio
 
 mkdir ~/.config/dunst
-cp dunstrc ~/.config/dunst/dunstrc
+cp dunstrc ~/.config/dunst/
 
 mkdir ~/bin
-cp update-brightness.sh ~/bin/update-brightness.sh
+cp update-brightness.sh ~/bin/
 chmod +x ~/bin/update-brightness.sh
-cp update-volume.sh ~/bin/update-volume.sh
+cp update-volume.sh ~/bin/
 chmod +x ~/bin/update-volume.sh
 
 sudo localectl set-x11-keymap us,ru pc105+inet "" grp:win_space_toggle
 
 sudo systemctl enable NetworkManager
-sudo cp 09-timezone /etc/NetworkManager/dispatcher.d/09-timezone
+sudo cp 09-timezone /etc/NetworkManager/dispatcher.d/
 sudo chmod +x /etc/NetworkManager/dispatcher.d/09-timezone
+
+sudo cp 30-touchpad.conf /usr/share/X11/xorg.conf.d/
 
 sudo reboot
