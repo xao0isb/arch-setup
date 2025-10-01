@@ -38,11 +38,14 @@ sudo systemctl enable NetworkManager
 sudo cp 09-timezone /etc/NetworkManager/dispatcher.d/
 sudo chmod +x /etc/NetworkManager/dispatcher.d/09-timezone
 
+systemctl --user enable ssh-agent
+
 sudo cp 30-touchpad.conf /usr/share/X11/xorg.conf.d/
 
 git clone https://aur.archlinux.org/escrotum-git.git ~/Downloads/escrotum-git
 cd ~/Downloads/escrotum-git
 makepkg -si --noconfirm
+sudo pacman -S --noconfirm python-numpy
 cd ~
 
 sudo reboot

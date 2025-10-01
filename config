@@ -196,4 +196,6 @@ bindsym XF86MonBrightnessUp exec --no-startup-id ~/bin/update-brightness.sh +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/bin/update-brightness.sh -10%
 
 bindsym Print exec --no-startup-id escrotum ~/Screenshots/%Y-%m-%dT%H:%M:%S.png
+bindsym Ctrl+$mod+c exec --no-startup-id escrotum -C
 bindsym Ctrl+$mod+s exec --no-startup-id escrotum -s ~/Screenshots/%Y-%m-%dT%H:%M:%S.png
+bindsym Ctrl+$mod+z exec --no-startup-id escrotum -s -C
