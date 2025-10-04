@@ -21,7 +21,7 @@ cp config ~/.config/i3/
 
 cp .Xresources ~/
 
-sudo pacman -S --noconfirm dunst libnotify pipewire pipewire-pulse networkmanager nano less bc unzip openssh chromium libreoffice-still obs-studio
+sudo pacman -S --noconfirm dunst libnotify pipewire pipewire-pulse networkmanager vim less bc unzip openssh chromium libreoffice-still obs-studio
 
 mkdir ~/.config/dunst
 cp dunstrc ~/.config/dunst/
