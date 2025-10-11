@@ -49,3 +49,35 @@ sudo pacman -S --noconfirm python-numpy
 cd ~
 
 sudo reboot
+
+mkdir ~/Projects
+
+# git setup
+for ARGUMENT in "$@"
+do
+    KEY=$(echo $ARGUMENT | cut -f1 -d=)
+    KEY_LENGTH=${#KEY}
+    VALUE="${ARGUMENT:$KEY_LENGTH+1}"
+
+    case $KEY in
+        "ge")
+            git config --global user.email $VALUE
+            ;;
+        "gn")
+            git config --global user.name $VALUE
+            ;;
+    esac
+done
+# git setup
+
+# pyenv
+echo "" >> .bashrc
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init - bash)"' >> ~/.bashrc
+
+echo "" >> .bash_profile
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(pyenv init - bash)"' >> ~/.bash_profile
+# pyenv
