@@ -69,4 +69,8 @@ function p() {
 
 alias rs='git reset HEAD~1 --soft'
 # git aliases
+
+m() {
+    make $@
+}
 # aliases
