@@ -40,7 +40,7 @@ c() {
     if [ "$#" -eq 0 ]; then
         EDITOR=vim git commit
     else
-        git commit -m $1
+        git commit -m "$1"
     fi
 }
 
