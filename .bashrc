@@ -19,10 +19,9 @@ alias d='date +%Y-%m-%d'
 alias b='cat /sys/class/power_supply/BAT1/capacity'
 alias bs='cat /sys/class/power_supply/BAT1/status'
 alias br='chromium'
+alias ex='libreoffice'
 
-i() {
-    sudo pacman -S $@
-}
+alias i='sudo pacman -S'
 
 vs() {
     if [ "$#" -eq 0 ]; then
@@ -33,10 +32,7 @@ vs() {
 }
 
 # git aliases
-cl() {
-    git clone $@
-}
-
+alias cl='git clone'
 alias s='git status'
 
 c() {
@@ -49,9 +45,6 @@ c() {
 }
 
 alias pl='git pull origin'
-plb() {
-    git pull origin $1
-}
 
 alias b='git branch'
 crb() {
@@ -62,15 +55,13 @@ chb() {
 }
 
 alias l='git log'
-
-function p() {
-    git push origin $1
-}
-
+alias p='git push origin'
 alias rs='git reset HEAD~1 --soft'
 # git aliases
 
-m() {
-    make $@
-}
+alias m='make'
 # aliases
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - bash)"
