@@ -109,4 +109,11 @@ echo 'eval "$(pyenv init - bash)"' >> ~/.bash_profile
 sudo pacman -S --needed --noconfirm base-devel openssl zlib xz tk zstd
 # pyenv
 
+# zoom
+git clone https://aur.archlinux.org/zoom.git ~/Downloads/zoom
+cd ~/Downloads/zoom
+makepkg -si --noconfirm
+cd ~
+# zoom
+
 sudo reboot
