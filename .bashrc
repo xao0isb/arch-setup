@@ -46,11 +46,11 @@ c() {
 
 alias pl='git pull origin'
 
-alias br='git branch'
-crbr() {
+alias brn='git branch'
+crbrn() {
     git switch -c $1
 }
-chbr() {
+chbrn() {
     git switch $1
 }
 
